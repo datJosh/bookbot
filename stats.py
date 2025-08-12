@@ -1,7 +1,7 @@
 def count_words(str):
     words = str.split()
     num_words = len(words)
-    print(f"{num_words} words found in the document")
+    print(f"Found {num_words} total words")
 
 def count_characters(str):
     dict_chars = {}
@@ -11,4 +11,11 @@ def count_characters(str):
             dict_chars[char] += 1
         else:
             dict_chars[char] = 1
-    print(dict_chars)
+    return dict_chars
+
+def sort_characters(dict):
+    list = []
+    for key in dict:
+        list.append({"char": key, "num": dict[key]})
+    list.sort(reverse=True, key=lambda item: item["num"])
+    return list
